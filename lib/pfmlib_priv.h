@@ -616,6 +616,7 @@ extern pfmlib_pmu_t intel_knm_unc_cha35_support;
 extern pfmlib_pmu_t intel_knm_unc_cha36_support;
 extern pfmlib_pmu_t intel_knm_unc_cha37_support;
 extern pfmlib_pmu_t intel_knm_unc_m2pcie_support;
+extern pfmlib_pmu_t intel_msr_support;
 
 extern pfmlib_pmu_t intel_glm_support;
 extern pfmlib_pmu_t power4_support;
