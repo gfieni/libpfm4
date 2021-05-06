@@ -84,6 +84,7 @@ static pfmlib_pmu_t *pfmlib_pmus[]=
 	&amd64_fam19h_zen3_support,
 	&amd64_fam19h_zen3_l3_support,
 	&amd64_rapl_support,
+	&amd64_msr_support,
 	&intel_core_support,
 	&intel_atom_support,
 	&intel_nhm_support,
@@ -440,6 +441,7 @@ static pfmlib_pmu_t *pfmlib_pmus[]=
 	&intel_knm_unc_cha36_support,
 	&intel_knm_unc_cha37_support,
 	&intel_knm_unc_m2pcie_support,
+	&intel_msr_support,
 	&intel_x86_arch_support, /* must always be last for x86 */
 #endif
 
