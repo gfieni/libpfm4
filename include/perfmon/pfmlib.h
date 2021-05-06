@@ -569,6 +569,9 @@ typedef enum {
 
 	PFM_PMU_INTEL_ICX,		/* Intel IceLakeX */
 
+        PFM_PMU_INTEL_MSR,		/* Intel MSR */
+	PFM_PMU_AMD64_MSR,		/* AMD64 MSR */
+
 	/* MUST ADD NEW PMU MODELS HERE */
 
 	PFM_PMU_MAX			/* end marker */
