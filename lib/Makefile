@@ -141,6 +141,8 @@ SRCS   += pfmlib_amd64.c pfmlib_intel_core.c pfmlib_intel_x86.c \
 	  pfmlib_intel_knl_unc_m2pcie.c \
 	  pfmlib_intel_glm.c \
 	  pfmlib_intel_netburst.c \
+	  pfmlib_intel_msr.c \
+	  pfmlib_amd64_msr.c \
 	  pfmlib_amd64_k7.c pfmlib_amd64_k8.c pfmlib_amd64_fam10h.c \
 	  pfmlib_amd64_fam11h.c pfmlib_amd64_fam12h.c \
 	  pfmlib_amd64_fam14h.c pfmlib_amd64_fam15h.c \
