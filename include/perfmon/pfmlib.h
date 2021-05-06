@@ -730,6 +730,9 @@ typedef enum {
 
 	PFM_PMU_INTEL_ADL_GLC,		/* Intel AlderLake Goldencove (P-Core) */
 	PFM_PMU_INTEL_ADL_GRT,		/* Intel AlderLake Gracemont (E-Core) */
+
+	PFM_PMU_INTEL_MSR,              /* Intel MSR */
+	PFM_PMU_AMD64_MSR,              /* AMD64 MSR */
 	/* MUST ADD NEW PMU MODELS HERE */
 
 	PFM_PMU_MAX			/* end marker */
