@@ -52,9 +52,8 @@ pfm_amd64_rapl_detect(void *this)
 
 	rev = pfm_amd64_cfg.revision;
 	switch(rev) {
+	case PFM_PMU_AMD64_FAM17H_ZEN1:
 	case PFM_PMU_AMD64_FAM17H_ZEN2:
-		ret = PFM_SUCCESS;
-		break;
 	case PFM_PMU_AMD64_FAM19H_ZEN3:
 		ret = PFM_SUCCESS;
 		break;
