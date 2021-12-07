@@ -441,6 +441,7 @@ static pfmlib_pmu_t *pfmlib_pmus[]=
 	&intel_knm_unc_cha36_support,
 	&intel_knm_unc_cha37_support,
 	&intel_knm_unc_m2pcie_support,
+        &intel_msr_support,
 	&intel_x86_arch_support, /* must always be last for x86 */
 #endif
 

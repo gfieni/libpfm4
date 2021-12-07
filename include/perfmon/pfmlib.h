@@ -572,7 +572,9 @@ typedef enum {
 	PFM_PMU_ARM_N2,			/* ARM Neoverse N2 */
 
 	PFM_PMU_ARM_KUNPENG,		/* HiSilicon Kunpeng processor */
-	/* MUST ADD NEW PMU MODELS HERE */
+
+        PFM_PMU_INTEL_MSR,
+        /* MUST ADD NEW PMU MODELS HERE */
 
 	PFM_PMU_MAX			/* end marker */
 } pfm_pmu_t;
