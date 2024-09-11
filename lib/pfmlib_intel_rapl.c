@@ -151,6 +151,8 @@ pfm_rapl_detect(void *this)
 			intel_rapl_support.pe 	     = intel_rapl_hswep_pe;
 			intel_rapl_support.pme_count = LIBPFM_ARRAY_SIZE(intel_rapl_hswep_pe);
 			break;
+		case 170:/*Meteor Lake*/
+                        break;
 		default :
 			return PFM_ERR_NOTSUPP;
 	}
