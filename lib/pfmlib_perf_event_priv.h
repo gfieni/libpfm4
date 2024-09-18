@@ -54,4 +54,6 @@
 
 #define PERF_PLM_ALL (PFM_PLM0|PFM_PLM3|PFM_PLMH)
 
+extern int pfm_perf_find_pmu_type_by_name(const char *perf_name, int *type);
+extern int pfm_perf_find_pmu_type(void *this, int *type);
 #endif

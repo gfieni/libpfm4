@@ -479,6 +479,80 @@ pfm_perf_event_os_detect(void *this)
 	return ret ? PFM_ERR_NOTSUPP : PFM_SUCCESS;
 }
 
+/*
+ * generic perf encoding helper
+ */
+int
+pfm_perf_find_pmu_type_by_name(const char *perf_name, int *type)
+{
+	char filename[PATH_MAX];
+	FILE *fp;
+	int ret;
+
+	if (!(perf_name && type))
+		return PFM_ERR_NOTSUPP;
+
+	sprintf(filename, "/sys/bus/event_source/devices/%s/type", perf_name);
+
+	fp = fopen(filename, "r");
+	if (!fp)
+		return PFM_ERR_NOTSUPP;
+
+	ret = fscanf(fp, "%d", type);
+	if (ret != 1)
+		*type = PFM_ERR_NOTSUPP;
+
+	fclose(fp);
+
+	return PFM_SUCCESS;
+}
+
+/*
+ * generic perf encoding helper
+ */
+int
+pfm_perf_find_pmu_type(void *this, int *type)
+{
+	pfmlib_pmu_t *pmu = this;
+	char *p, *s, *q;
+	int ret;
+
+
+	/*
+	 * if not perf_name specified, then the best
+	 * option is to use TYPE_RAW, i.e. the core PMU
+	 * which the caller is running on when invoking
+	 * perf_event_open()
+	 */
+	if (!pmu->perf_name) {
+		*type = PERF_TYPE_RAW;
+		DPRINT("No perf_name for %s, defaulting to TYPE_RAW\n", pmu->name);
+		return PFM_SUCCESS;
+	}
+
+	s = q = strdup(pmu->perf_name);
+	if (!s) {
+		DPRINT("cannot dup perf_name for %s\n", pmu->perf_name);
+		return PFM_ERR_NOTSUPP;
+	}
+
+	while ((p = strchr(s, ','))) {
+		*p = '\0';
+		ret = pfm_perf_find_pmu_type_by_name(s, type);
+		if (ret  == PFM_SUCCESS)
+			break;
+		s = p + 1;
+	}
+	ret = pfm_perf_find_pmu_type_by_name(s, type);
+
+	free(q);
+
+	if (ret != PFM_SUCCESS) {
+		DPRINT("cannot find perf_events PMU type for %s perf_name=%s using PERF_TYPE_RAW\n", pmu->name, pmu->perf_name);
+	}
+	return ret;
+}
+
 pfmlib_os_t pfmlib_os_perf={
 	.name = "perf_event",
 	.id = PFM_OS_PERF_EVENT,
