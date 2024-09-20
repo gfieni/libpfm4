@@ -37,18 +37,10 @@
 static int
 pfm_arm_detect_1176(void *this)
 {
+	/* ARM 1176 */
+	arm_cpuid_t attr = { .impl = 0x41, .arch = 6, .part = 0xb76; };
 
-	int ret;
-
-	ret = pfm_arm_detect(this);
-	if (ret != PFM_SUCCESS)
-		return PFM_ERR_NOTSUPP;
-
-	if ((pfm_arm_cfg.implementer == 0x41) && /* ARM */
-			(pfm_arm_cfg.part==0xb76)) { /* 1176 */
-		return PFM_SUCCESS;
-	}
-	return PFM_ERR_NOTSUPP;
+	return pfm_arm_detect(&attr, NULL);
 }
 
 /* ARM1176 support */

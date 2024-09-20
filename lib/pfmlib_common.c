@@ -1214,9 +1214,13 @@ pfmlib_init_env(void)
 	if (str)
 		pfm_cfg.blacklist_pmus = str;
 
+#ifdef CONFIG_PFMLIB_OS_LINUX
 	str = getenv("LIBPFM_PROC_CPUINFO");
 	if (str)
 		pfm_cfg.proc_cpuinfo = str;
+	else
+		pfm_cfg.proc_cpuinfo = "/proc/cpuinfo";
+#endif
 }
 
 static int
