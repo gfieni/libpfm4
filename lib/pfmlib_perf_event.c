@@ -31,7 +31,7 @@
 #include "pfmlib_priv.h"
 #include "pfmlib_perf_event_priv.h"
 
-#define PERF_PROC_FILE "/proc/sys/kernel/perf_event_paranoid"
+#define PERF_PROC_FILE	"/proc/sys/kernel/perf_event_paranoid"
 
 #ifdef min
 #undef min

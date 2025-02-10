@@ -56,4 +56,7 @@
 
 extern int pfm_perf_find_pmu_type_by_name(const char *perf_name, int *type);
 extern int pfm_perf_find_pmu_type(void *this, int *type);
+
+#define SYSFS_PMU_DEVICES_DIR	"/sys/bus/event_source/devices"
+
 #endif

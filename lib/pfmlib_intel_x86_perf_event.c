@@ -362,6 +362,6 @@ pfm_intel_x86_perf_detect(void *this)
 	pfmlib_pmu_t *pmu = this;
 	char file[64];
 
-	snprintf(file,sizeof(file), "/sys/devices/%s", pmu->perf_name);
+	snprintf(file,sizeof(file), "%s/%s", SYSFS_PMU_DEVICES_DIR, pmu->perf_name);
 	return access(file, R_OK|X_OK) ? PFM_ERR_NOTSUPP : PFM_SUCCESS;
 }
