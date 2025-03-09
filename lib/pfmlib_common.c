@@ -988,7 +988,8 @@ pfmlib_getl(char **buffer, size_t *len, FILE *fp)
 		if (c == '\n')
 			break;
 	}
-	b[i] = '\0';
+	if (c != EOF)
+		b[i] = '\0';
 	return c != EOF ? 0 : -1;
 }
 
