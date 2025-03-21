@@ -57,8 +57,14 @@ static int pfmlib_find_arm_cpuid(arm_cpuid_t *attr, arm_cpuid_t *match_attr)
 		return PFM_ERR_NOTFOUND;
 
 	for (i=0; i < num_arm_cpuids; i++) {
+#if 0
+/*
+ * disabled due to issues with expected arch vs. reported
+ * arch by the Linux kernel cpuinfo
+ */
 		if (arm_cpuids[i].arch != attr->arch)
 			continue;
+#endif
 		if (arm_cpuids[i].impl != attr->impl)
 			continue;
 		if (arm_cpuids[i].part != attr->part)
