@@ -155,7 +155,7 @@ pfm_arm_detect_hisilicon_kunpeng(void *this)
 pfmlib_pmu_t arm_cortex_a57_support={
 	.desc			= "ARM Cortex A57",
 	.name			= "arm_ac57",
-	.perf_name		= "armv8_cortex_a57,armv8_pmuv3_0",
+	.perf_name              = "armv8_cortex_a57,armv8_pmuv3_0,armv8_pmuv3",
 	.pmu			= PFM_PMU_ARM_CORTEX_A57,
 	.pme_count		= LIBPFM_ARRAY_SIZE(arm_cortex_a57_pe),
 	.type			= PFM_PMU_TYPE_CORE,
